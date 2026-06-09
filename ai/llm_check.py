@@ -22,3 +22,13 @@ def explain_anomaly(metric_name, value, z_score):
     )
 
     return response["message"]["content"]
+
+if __name__ == "__main__":
+
+    result = explain_anomaly(
+        "orders_per_minute",
+        450,
+        7.2
+    )
+
+    print(result)
