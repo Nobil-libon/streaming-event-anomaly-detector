@@ -4,9 +4,18 @@ import time
 import random
 from datetime import datetime
 from queue import Queue
+import sys
+import os
 
-from config import EVENT_INTERVAL, ANOMALY_CHANCE, SPIKE_SIZE
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+from config import (
+    EVENT_INTERVAL,
+    ANOMALY_CHANCE,
+    SPIKE_MULTIPLIER,
+    NORMAL_MIN_EVENTS,
+    NORMAL_MAX_EVENTS
+)
 # Shared Queue
 event_queue = Queue()
 
@@ -32,9 +41,9 @@ def producer():
         # Generate anomaly spike
         if random.random() < ANOMALY_CHANCE:
 
-            print(f"\n🚨 ANOMALY DETECTED: Generating {SPIKE_SIZE} events 🚨")
+            print(f"\n🚨 ANOMALY DETECTED: Generating {SPIKE_MULTIPLIER} events 🚨")
 
-            for _ in range(SPIKE_SIZE):
+            for _ in range(SPIKE_MULTIPLIER):
 
                 event = generate_event(order_id)
 
