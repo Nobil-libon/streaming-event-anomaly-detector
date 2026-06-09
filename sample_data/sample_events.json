@@ -1,0 +1,12 @@
+[
+    {
+        "event": "order_placed",
+        "timestamp": "2026-06-09 10:00:01",
+        "order_id": "ORD001"
+    },
+    {
+        "event": "order_placed",
+        "timestamp": "2026-06-09 10:00:02",
+        "order_id": "ORD002"
+    }
+]
